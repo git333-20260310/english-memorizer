@@ -2,9 +2,13 @@ const selectTextButton = document.querySelector("#selectTextButton");
 const cards = document.querySelector("#cards");
 
 selectTextButton.addEventListener("click", selectTextOnScreen);
+selectTextButton.addEventListener("touchend", (event) => {
+  event.preventDefault();
+  selectTextOnScreen();
+});
 
 function selectTextOnScreen() {
-  selectRange(cards);
+  requestAnimationFrame(() => selectRange(cards));
 }
 
 function selectRange(startElement, endElement = startElement) {
