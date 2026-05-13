@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>英語丸暗記</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <h1>英語丸暗記</h1>
+          <p id="progressText">Loading...</p>
+        </div>
+        <div class="tools">
+          <input id="searchInput" type="search" placeholder="検索" autocomplete="off" />
+          <button id="resetButton" type="button">リセット</button>
+        </div>
+      </header>
+
+      <nav id="sectionTabs" class="tabs" aria-label="教材セクション"></nav>
+
+      <section class="legend" aria-label="チェックの説明">
+        <span><span class="sample box"></span> 覚えた</span>
+        <span><span class="sample circle"></span> 完璧に覚えた</span>
+      </section>
+
+      <section id="cards" class="cards" aria-live="polite"></section>
+      <p id="emptyState" class="empty" hidden>該当する例文がありません。</p>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
