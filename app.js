@@ -9,6 +9,15 @@ async function decodeData() {
   return new Response(stream).text();
 }
 
+function normalizeRawData(raw) {
+  return raw
+    .replace("Right.\n�す。", "Right.\nそうです。")
+    .replace(
+      "Okay…\n�す。\n\nIt so…\n\nCan you help me?",
+      "Okay…\nわかりました。\n\nIt so…\nそれは…\n\nCan you help me?",
+    );
+}
+
 const STORAGE_KEY = "english-memorizer-state-v1";
 const cardsEl = document.querySelector("#cards");
 const tabsEl = document.querySelector("#sectionTabs");
@@ -213,7 +222,7 @@ resetButton.addEventListener("click", () => {
 
 decodeData()
   .then((raw) => {
-    sections = parseRaw(raw);
+    sections = parseRaw(normalizeRawData(raw));
     activeSection = sections[0]?.id ?? "001";
     render();
   })
