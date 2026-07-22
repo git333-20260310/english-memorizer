@@ -20,6 +20,8 @@ async function decodeData() {
 
 function normalizeRawData(raw) {
   return raw
+        .replace("給湯\n\nsurge.", "急騰\n\nsurge.")
+    .replace("給湯する\n\nsurge.", "急騰する\n\nsurge.")
     .replace("Right.\n�す。", "Right.\nそうです。")
     .replace(
       "Okay…\n�す。\n\nIt so…\n\nCan you help me?",
